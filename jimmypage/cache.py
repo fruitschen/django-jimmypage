@@ -38,7 +38,7 @@ def clear_cache():
     try:
         cache.incr(GLOBAL_GENERATION)
     except ValueError:
-        cache.set(GLOBAL_GENERATION, 1)
+        cache.set(GLOBAL_GENERATION, 1, CACHE_SECONDS)
 
 def expire_cache(sender, instance, **kwargs):
     table = instance._meta.db_table
