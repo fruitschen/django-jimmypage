@@ -4,6 +4,12 @@ import os
 from distutils.core import setup
 from distutils.command.install import INSTALL_SCHEMES
 
+try:
+    from setuptools import setup, find_packages
+except ImportError:
+    from distutils.core import setup, find_packages
+
+
 VERSION = '0.1'
 
 setup(name='django-jimmypage',
@@ -12,7 +18,7 @@ setup(name='django-jimmypage',
     author='Charlie DeTar',
     author_email='cfd@media.mit.edu',
     url='http://github.com/yourcelf/jimmypage',
-    packages=['jimmypage'],
+    packages=find_packages(),
     classifiers=[
         'Development Status :: 3 - Alpha',
         'Environment :: Web Environment',
